@@ -1,0 +1,7 @@
+# Structural Exclusion Rules
+*.db
+*.db-shm
+*.db-wal
+gosaas_ultra_bin
+go_saas_core
+test_bin
