@@ -2,23 +2,22 @@ name: GoSaaS-Ultra Production Engine CI
 
 on:
   push:
-    branches: [ main ]
+    branches: [ master ]
   pull_request:
-    branches: [ main ]
+    branches: [ master ]
 
 jobs:
   validate_architecture:
     runs-on: ubuntu-latest
     steps:
       - name: Isolate Source Code Matrix
-        # Pin explicit v4/v5 tags that are fully compliant with Node 24 environments
         uses: actions/checkout@v4.2.2
 
       - name: Initialize Standard Go Environment
         uses: actions/setup-go@v5.3.0
         with:
-          go-version: '1.25.12' # Strictly maps to your autoupgraded project lockfile
-          cache: true          # Enables native, non-breaking go.sum footprint caching
+          go-version: '1.25.12'
+          cache: true
 
       - name: Synchronize Package Footprints
         run: go mod tidy
