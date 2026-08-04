@@ -1,4 +1,4 @@
-module gosaas_ultra
+module github.com/tatulatu700-lang/gosaas-ultra
 
 go 1.25.0
 
