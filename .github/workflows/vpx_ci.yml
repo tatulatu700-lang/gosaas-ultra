@@ -23,8 +23,9 @@ jobs:
         run: go mod tidy
 
       - name: Hardened Static Compilation Audit
+        # Compile the current directory package structure natively rather than a bare file
         run: |
-          CGO_ENABLED=0 go build -ldflags="-s -w" -v -o gosaas_ultra_bin main.go
+          CGO_ENABLED=0 go build -ldflags="-s -w" -v -o gosaas_ultra_bin .
 
       - name: Validate Artifact Persistence
         run: test -f gosaas_ultra_bin
